@@ -3,8 +3,10 @@ package com.iamvaraiable.daggersimpleapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.iamvariable.daggersimpleapp.R
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     @Inject
@@ -12,9 +14,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        (application as App).dataComponent.inject(this)
-
         dataSource.getUserData()
     }
 }
